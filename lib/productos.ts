@@ -3,7 +3,7 @@ import type { Producto } from "./tipos";
 /**
  * ================================================================
  *  TUS PRODUCTOS O SERVICIOS.
- *  Cada ficha sigue la "anatomía del que vende" (research_consolidado.md):
+ *  Cada ficha sigue la "anatomía del que vende" (ver CLAUDE.md):
  *   paraQuien  → el trabajo que resuelve (Christensen, HBR 2005)
  *   beneficio  → resultado, no característica (StoryBrand)
  *   caracteristicas → SOLO 3 que importan (Iyengar, las mermeladas)
@@ -27,6 +27,7 @@ export const PRODUCTOS: Producto[] = [
     precioAntes: "$320",
     facilidades: "Llévate 3 por $690",
     bono: "Incluye caja de regalo y tarjeta escrita a mano.",
+    garantia: "Si no te encanta el aroma, te devolvemos tu dinero.",
     escasez: { tipo: "unidades", valor: "12 piezas de esta tanda" },
     prueba: "Más de 400 vendidas este año.",
     destacado: true,
@@ -84,6 +85,7 @@ export const PRODUCTOS: Producto[] = [
     precioAntes: "$1,200",
     facilidades: "Se descuenta si nos compras los muebles",
     bono: "Segunda llamada de seguimiento a las 2 semanas, sin costo.",
+    garantia: "Si el plan no te sirvió, esa visita no te la cobro.",
     prueba: "\"Con una tarde cambió toda mi sala\" — Marisol, clienta.",
   },
   {

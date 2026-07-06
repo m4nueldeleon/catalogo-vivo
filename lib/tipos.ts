@@ -48,9 +48,9 @@ export interface Escasez {
 
 /**
  * Un producto o servicio. La estructura sigue la "anatomía del que vende"
- * (investigación HBR / MIT Sloan / libros — ver research_consolidado.md):
+ * (investigación HBR / MIT Sloan / libros de ventas — ver CLAUDE.md):
  * foto clara, para quién es, beneficio antes que característica, 3 datos,
- * precio con ancla, bono, escasez honesta, prueba.
+ * precio con ancla, bono, garantía, escasez honesta, prueba.
  */
 export interface Producto {
   /** Identificador para la liga de la ficha (ej. "vela-cafe"). */
@@ -78,6 +78,8 @@ export interface Producto {
   facilidades?: string;
   /** El bono / lo que incluye además (Hormozi). Opcional. */
   bono?: string;
+  /** Garantía por escrito: quita el miedo a comprar (Hormozi). Opcional. */
+  garantia?: string;
   /** Escasez honesta, por tiempo o unidades (Cialdini). Opcional. */
   escasez?: Escasez;
   /** La prueba: testimonio, número o marca (prueba social). Opcional. */

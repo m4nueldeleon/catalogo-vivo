@@ -16,8 +16,13 @@ export function CatalogoGrid({ vendedorSlug }: CatalogoGridProps) {
   const [filtro, setFiltro] = useState<string>("Todas");
   const [expandidas, setExpandidas] = useState<Record<string, boolean>>({});
 
-  const categorias = ["Todas", ...CONFIG.categorias];
-  const visibles = filtro === "Todas" ? CONFIG.categorias : [filtro];
+  // Une el orden de config con cualquier categoría real de los productos,
+  // para que nunca quede un producto huérfano (catálogo vacío).
+  const categoriasReales = Array.from(
+    new Set([...CONFIG.categorias, ...PRODUCTOS.map((p) => p.categoria)])
+  );
+  const categorias = ["Todas", ...categoriasReales];
+  const visibles = filtro === "Todas" ? categoriasReales : [filtro];
 
   return (
     <section className="mx-auto max-w-6xl px-5 pb-24">

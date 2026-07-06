@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { MessageCircle } from "lucide-react";
 import { Icon } from "@/components/ui/Icon";
 import { FotoProducto } from "@/components/catalogo/FotoProducto";
 import { ProductoCard } from "@/components/catalogo/ProductoCard";
@@ -89,7 +90,7 @@ export default async function FichaProducto({
           </div>
 
           <a href={href} target="_blank" rel="noopener noreferrer" className="btn-marca btn-wa mt-2 w-full sm:w-auto">
-            <Icon name="logos:whatsapp-icon" size={22} /> Lo quiero
+            <MessageCircle size={22} /> Lo quiero
           </a>
         </div>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { FotoProducto } from "./FotoProducto";
@@ -80,7 +81,7 @@ export function ProductoCard({ producto, vendedorSlug }: ProductoCardProps) {
 
         {/* La prueba */}
         {producto.prueba && (
-          <p className="text-sm italic text-ink-mute">{producto.prueba}</p>
+          <p className="text-sm text-ink-soft">{producto.prueba}</p>
         )}
 
         {/* El bono / lo que incluye */}
@@ -94,6 +95,14 @@ export function ProductoCard({ producto, vendedorSlug }: ProductoCardProps) {
           >
             <span className="font-semibold">Además te llevas:</span> {producto.bono}
           </div>
+        )}
+
+        {/* La garantía: quita el miedo a comprar */}
+        {producto.garantia && (
+          <p className="flex items-start gap-1.5 text-sm text-ink-soft">
+            <Icon name="lucide:shield-check" size={15} className="mt-0.5 shrink-0 text-marca" />
+            {producto.garantia}
+          </p>
         )}
 
         {/* Precio con ancla + facilidades */}
@@ -115,10 +124,10 @@ export function ProductoCard({ producto, vendedorSlug }: ProductoCardProps) {
             rel="noopener noreferrer"
             className="btn-marca btn-wa flex-1"
           >
-            <Icon name="logos:whatsapp-icon" size={20} /> Lo quiero
+            <MessageCircle size={20} /> Lo quiero
           </a>
           <Link
-            href={`/producto/${producto.slug}`}
+            href={vendedorSlug ? `/producto/${producto.slug}?v=${encodeURIComponent(vendedorSlug)}` : `/producto/${producto.slug}`}
             className="btn-ghost px-4"
             aria-label={`Ver ficha de ${producto.nombre}`}
           >

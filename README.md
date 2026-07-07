@@ -23,7 +23,7 @@ clientes piden con un botón. Cada vendedor tiene su propia liga.
 ### 🟢 Camino fácil: con Claude Code (recomendado)
 1. Descarga **Claude Code** en `claude.com/download` (pestaña *Code*).
 2. Abre este proyecto con Claude Code.
-3. Escríbele: **"Ayúdame a configurar mi Catálogo Vivo siguiendo el CLAUDE.md"**.
+3. Escríbele: **"Descarga el proyecto de https://github.com/m4nueldeleon/catalogo-vivo y ayúdame a configurar mi Catálogo Vivo siguiendo el CLAUDE.md"**.
 4. Contéstale lo que te pregunte (tu negocio, tus productos, tus fotos) y él lo arma.
 
 ### 🔧 Camino a mano

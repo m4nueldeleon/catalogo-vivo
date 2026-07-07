@@ -1,7 +1,7 @@
 # Catálogo Vivo — guía para tu Claude Code
 
-> Pégale este proyecto a tu **Claude Code** (o **Claude Cowork**) y dile:
-> *"Ayúdame a configurar mi Catálogo Vivo siguiendo el CLAUDE.md"*.
+> Copia este prompt en tu **Claude Code** (o **Claude Cowork**):
+> *"Descarga el proyecto de https://github.com/m4nueldeleon/catalogo-vivo y ayúdame a configurar mi Catálogo Vivo para mi negocio, siguiendo el CLAUDE.md."*
 > Este archivo te dice, Claude, exactamente cómo ayudarle al dueño del negocio.
 
 ## Qué es esto

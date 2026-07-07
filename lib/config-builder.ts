@@ -33,6 +33,18 @@ function s(valor: string): string {
   return JSON.stringify(valor ?? "");
 }
 
+/**
+ * Prompt COMPLETO listo para pegar en Claude Code / Cowork: incluye el link del
+ * repo (para que lo descargue) + la configuración generada. Una sola cosa que copiar.
+ */
+export function generarPromptPegar(d: DatosConfig): string {
+  return `Descarga el proyecto de https://github.com/m4nueldeleon/catalogo-vivo y ayúdame a configurar mi Catálogo Vivo para mi negocio, siguiendo el CLAUDE.md.
+
+Para empezar, reemplaza el contenido de lib/config.ts con esto:
+
+${generarConfigTS(d)}`;
+}
+
 /** Genera el contenido completo de `lib/config.ts` con los datos del wizard. */
 export function generarConfigTS(d: DatosConfig): string {
   const whatsappPrincipal = soloNumeros(d.whatsapp) || "5213300000000";

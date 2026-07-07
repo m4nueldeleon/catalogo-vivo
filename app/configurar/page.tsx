@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Icon } from "@/components/ui/Icon";
 import { cn } from "@/lib/cn";
-import { generarConfigTS, slugify } from "@/lib/config-builder";
+import { generarPromptPegar, slugify } from "@/lib/config-builder";
 
 interface VendedorForm {
   nombre: string;
@@ -33,9 +33,9 @@ export default function Configurar() {
   const [vendedores, setVendedores] = useState<VendedorForm[]>([{ nombre: "", whatsapp: "" }]);
   const [copiado, setCopiado] = useState(false);
 
-  const configTS = useMemo(
+  const promptPegar = useMemo(
     () =>
-      generarConfigTS({
+      generarPromptPegar({
         negocio,
         descripcion,
         ciudad,
@@ -51,7 +51,7 @@ export default function Configurar() {
 
   async function copiar() {
     try {
-      await navigator.clipboard.writeText(configTS);
+      await navigator.clipboard.writeText(promptPegar);
       setCopiado(true);
       setTimeout(() => setCopiado(false), 2500);
     } catch {
@@ -215,27 +215,26 @@ export default function Configurar() {
       <Seccion n={5} titulo="Tu configuración lista">
         <div className="rounded-2xl border border-line p-5">
           <p className="text-sm text-ink-soft">
-            Ya está. Ahora tienes dos formas de aplicarla:
+            Ya está. Copia este prompt y pégalo en tu <span className="font-semibold text-ink">Claude Code</span> o{" "}
+            <span className="font-semibold text-ink">Cowork</span>: ya trae el link para descargar el proyecto y tu configuración.
           </p>
           <ol className="mt-3 flex list-decimal flex-col gap-2 pl-5 text-sm text-ink-soft">
             <li>
-              <span className="font-semibold text-ink">La fácil:</span> copia esto y dile a tu Claude
-              Code: <em>&ldquo;reemplaza el contenido de <code>lib/config.ts</code> con esto&rdquo;</em> y pégalo.
+              <span className="font-semibold text-ink">Con Claude Code:</span> copia el prompt de abajo y pégalo. Él descarga el proyecto y le pone tu configuración.
             </li>
             <li>
-              <span className="font-semibold text-ink">A mano:</span> abre el archivo <code>lib/config.ts</code>,
-              borra todo y pega esto.
+              <span className="font-semibold text-ink">Si ya tienes el proyecto:</span> copia solo la parte de <code>lib/config.ts</code> (lo que va después de &ldquo;reemplaza…&rdquo;) y pégala en ese archivo.
             </li>
           </ol>
           <motion.pre
             key={copiado ? "c" : "n"}
             className="mt-4 max-h-72 overflow-auto rounded-xl border border-line bg-bg-2/60 p-4 text-xs leading-relaxed"
           >
-            <code>{configTS}</code>
+            <code>{promptPegar}</code>
           </motion.pre>
           <button onClick={copiar} className="btn-marca mt-4">
             <Icon name={copiado ? "lucide:check" : "lucide:copy"} size={18} />
-            {copiado ? "¡Copiado!" : "Copiar mi configuración"}
+            {copiado ? "¡Copiado!" : "Copiar el prompt"}
           </button>
         </div>
       </Seccion>
